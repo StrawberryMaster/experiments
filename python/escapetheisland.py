@@ -55,3 +55,18 @@ while not game_over:
             "You solved all the puzzles and found a way off the island! You win!"
         )
         game_over = True
+
+# In this game, the player is stranded on a deserted island and must find a way
+# to escape before time runs out. The player can explore the island, gather resources,
+# and solve puzzles in order to progress.
+#
+# When the game starts, the player is presented with a map of the island and a list of
+# available actions (e.g. "explore," "gather resources," "solve puzzle"). The player
+# chooses an action and the game responds accordingly. For example, if the player chooses
+# to "explore," the game might generate a random event (e.g. the player finds a new resource
+# or encounters a puzzle).
+#
+# The player can use resources they have gathered to solve puzzles and progress through the game.
+# The game has a 10-minute timer that counts down as the player plays. If the timer reaches zero,
+# the player loses the game. If the player completes all the puzzles and finds a way off the island
+# before the timer runs out, they win the game.
