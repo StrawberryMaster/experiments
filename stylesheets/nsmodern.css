@@ -1,0 +1,140 @@
+/* ==UserStyle==
+@name           NationStates Modern
+@namespace      github.com/openstyles/stylus
+@version        1.0.0
+@description    Attempts to modernize the design of NationStates.
+@author         StrawberryMaster (@pipehuncho)
+==/UserStyle== */
+@-moz-document domain("nationstates.net") {
+	@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+	/* Changes font color */
+	body,
+	td,
+	#banner .bel {
+		font-family: Roboto, Verdana, sans-serif;
+	}
+
+	#dlegislationtext {
+		font-family: Georgia, serif;
+	}
+
+	.WA_votepos_for,
+	.WA_votepos_against,
+	.WA_votepos_undecided {
+		font-family: Helvetica, Verdana, Tahoma, sans-serif;
+	}
+
+	/* Minimizes shadows */
+	#nationcover,
+	.regioncover {
+		box-shadow: -2px 6px 2px -4px rgb(0 0 0 / 50%);
+	}
+
+	.regioncover h1 a {
+		filter: none;
+	}
+
+	#panel li i {
+		text-shadow: 1px 1px 2px #999;
+	}
+
+	hr.shadowline {
+		box-shadow: inset 0 9px 5px -9px rgb(0 0 0 / 50%);
+	}
+
+	.panelcontent,
+	table.ranks tr.thisisme td {
+		box-shadow: none;
+	}
+
+	table.shiny {
+		box-shadow: .1rem .1rem .2rem #999;
+	}
+
+	/** World Assembly page **/
+	.WA_thing {
+		box-shadow: 0 .1rem .2rem #6a6a60;
+	}
+
+	.WA_thing_icon {
+		/* fixes margin */
+		top: 1em;
+	}
+
+	.widebox .smalldesc {
+		font-size: small;
+		/* making this bigger */
+	}
+
+	.herointro-wa {
+		background: rgba(132, 161, 134, 0.1);
+		border-radius: 0 .2rem .2rem 0;
+	}
+
+	/* Modernization/miscellaneous */
+	td,
+	th,
+	fieldset,
+	legend,
+	table {
+		border-radius: .2rem;
+	}
+
+	.banner {
+		box-shadow: .1rem .1rem .5rem rgba(0, 0, 0, .75);
+	}
+
+	#dossierboxwrapper>.popupbox {
+		padding: 0 .5rem;
+	}
+
+	/** Faster transition between items **/
+	#banner .bel,
+	#panel .menu li,
+	#banner .bel a,
+	#panel .menu li a {
+		transition: background-color .5s cubic-bezier(0.22, 0.61, 0.36, 1);
+	}
+
+	#panel ul.popoutmenu {
+		border-radius: 0 3% 3% 0;
+		transition: opacity .1s cubic-bezier(0.46, 0.03, 0.52, 0.96) .1s;
+	}
+
+	#panel .notificationnumber.rmbnewnumber:hover {
+		box-shadow: 1px 1px 2px red;
+	}
+
+	div.rmbhighlight,
+	tr.rmbhighlight td {
+		border: 2px solid #888;
+		box-shadow: 1px 1px 2px #444;
+	}
+
+	/** Modernized info messages **/
+	.info {
+		border: .1rem solid #696;
+		border-left: .5rem solid #696;
+		border-radius: 0;
+	}
+
+	.hzln {
+		border-bottom: .1rem dashed #999;
+		margin: 1em 1%;
+	}
+
+	.nationnavbar i {
+		transition: all .2s cubic-bezier(0.65, 0.05, 0.36, 1);
+	}
+
+	.unbox {
+		border-bottom: .1rem dashed #999;
+	}
+
+	fieldset.wfe,
+	fieldset.wfe legend {
+		border-width: 1px;
+		box-shadow: 1px 1px 1px #999;
+	}
+}
