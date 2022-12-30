@@ -9,6 +9,10 @@ h1 {
   font-size: 2em;
 }
 
+p {
+  margin: 1rem;
+}
+
 form {
   display: flex;
   flex-direction: column;
@@ -52,51 +56,31 @@ button:hover {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-@prefers color-scheme: dark {
+@media (prefers-color-scheme: dark) {
   body {
-    font-family: sans-serif;
     background-color: black;
     color: white;
   }
 
   h1 {
-    text-align: center;
     color: lightblue;
-    font-size: 2em;
   }
 
   form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 20px;
-    padding: 20px;
     background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
   }
 
   label {
-    margin: 5px;
     color: lightgray;
   }
 
   input[type="number"] {
-    width: 80px;
-    margin: 5px;
-    padding: 5px;
-    border: 1px solid gray;
-    border-radius: 5px;
     background-color: rgba(255, 255, 255, 0.1);
     color: white;
   }
 
   button {
-    margin: 10px;
-    padding: 10px 20px;
     background-color: lightblue;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
   }
 
   button:hover {
@@ -104,13 +88,6 @@ button:hover {
   }
 
   #result {
-    text-align: center;
-    font-weight: bold;
-    margin: 20px;
-    padding: 10px;
-    border: 1px solid gray;
-    border-radius: 5px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     background-color: rgba(255, 255, 255, 0.1);
   }
 
