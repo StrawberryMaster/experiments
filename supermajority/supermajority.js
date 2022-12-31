@@ -13,7 +13,7 @@ window.onload = () => {
 
     // Stores all category values in an array
     const inputValues = [support, neutralLeaningSupport, neutral, neutralLeaningOppose, oppose];
-    
+
     // Check if any of the input fields are blank
     if (inputValues.some(isNaN)) {
       resultDiv.innerHTML = "Invalid input. Please enter a number for each category.";
