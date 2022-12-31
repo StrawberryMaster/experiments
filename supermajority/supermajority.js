@@ -11,6 +11,21 @@ window.onload = () => {
     const neutralLeaningOppose = parseInt(document.getElementById("neutralLeaningOppose").value, 10);
     const oppose = parseInt(document.getElementById("oppose").value, 10);
 
+    // Stores all category values in an array
+    const inputValues = [support, neutralLeaningSupport, neutral, neutralLeaningOppose, oppose];
+    
+    // Check if any of the input fields are blank
+    if (inputValues.some(isNaN)) {
+      resultDiv.innerHTML = "Invalid input. Please enter a number for each category.";
+      return;
+    }
+
+    // Check if all inputted values are zero
+    if (inputValues.every((input) => input === 0)) {
+      resultDiv.innerHTML = "All inputted values are zero. The supermajority is 0%.";
+      return;
+    }
+
     // Calculate the total number of voters and the total sum of votes
     const totalVoters = support + neutralLeaningSupport + neutral + neutralLeaningOppose + oppose;
     const totalSum = support * 100 + neutralLeaningSupport * 75 + neutral * 50 + neutralLeaningOppose * 25;
