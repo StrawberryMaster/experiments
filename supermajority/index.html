@@ -2,36 +2,42 @@
 <html>
 
 <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Supermajority Calculator</title>
   <link rel="stylesheet" href="supermajority.css">
   <script src="supermajority.js"></script>
 </head>
 
 <body>
-  <h1>Supermajority Calculator</h1>
-  <p>This calculator determines the supermajority for a vote by summing the values assigned to each category
-    (Support = 100, Neutral Leaning Support = 75, Neutral = 50, Neutral Leaning Oppose = 25, Oppose = 0), multiplying
-    these values
-    by the number of votes in each category, and dividing by the total number of votes. If the resulting supermajority
-    is 60% or above, the vote passes; otherwise, it fails.</p>
-  <form id="voteForm" method="post">
-    <label>Support:</label>
-    <input type="number" id="support" value="0" min="0">
-    <br>
-    <label>Neutral Leaning Support:</label>
-    <input type="number" id="neutralLeaningSupport" value="0" min="0">
-    <br>
-    <label>Neutral:</label>
-    <input type="number" id="neutral" value="0" min="0">
-    <br>
-    <label>Neutral Leaning Oppose:</label>
-    <input type="number" id="neutralLeaningOppose" value="0" min="0">
-    <br>
-    <label>Oppose:</label>
-    <input type="number" id="oppose" value="0" min="0">
-    <br>
-    <button type="submit">Calculate Supermajority</button>
-  </form>
+  <header>
+    <h1>Supermajority Calculator</h1>
+  </header>
+  <main>
+    <p>This calculator determines the supermajority for a vote by summing the values assigned to each category
+      (Support = 100, Neutral Leaning Support = 75, Neutral = 50, Neutral Leaning Oppose = 25, Oppose = 0), multiplying
+      these values
+      by the number of votes in each category, and dividing by the total number of votes. If the resulting supermajority
+      is 60% or above, the vote passes; otherwise, it fails.</p>
+    <form id="voteForm" method="post">
+      <label>Support:</label>
+      <input type="number" id="support" value="0" min="0">
+      <br>
+      <label>Neutral Leaning Support:</label>
+      <input type="number" id="neutralLeaningSupport" value="0" min="0">
+      <br>
+      <label>Neutral:</label>
+      <input type="number" id="neutral" value="0" min="0">
+      <br>
+      <label>Neutral Leaning Oppose:</label>
+      <input type="number" id="neutralLeaningOppose" value="0" min="0">
+      <br>
+      <label>Oppose:</label>
+      <input type="number" id="oppose" value="0" min="0">
+      <br>
+      <button type="submit">Calculate Supermajority</button>
+    </form>
+  </main>
   <div id="result">No supermajority calculated yet.</div>
 </body>
 
