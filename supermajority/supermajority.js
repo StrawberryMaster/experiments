@@ -5,11 +5,11 @@ window.onload = () => {
     const resultDiv = document.getElementById("result");
 
     // Get the values of the input fields
-    const support = parseInt(document.getElementById("support").value, 10);
-    const neutralLeaningSupport = parseInt(document.getElementById("neutralLeaningSupport").value, 10);
-    const neutral = parseInt(document.getElementById("neutral").value, 10);
-    const neutralLeaningOppose = parseInt(document.getElementById("neutralLeaningOppose").value, 10);
-    const oppose = parseInt(document.getElementById("oppose").value, 10);
+    const support = Number(document.getElementById("support").value);
+    const neutralLeaningSupport = Number(document.getElementById("neutralLeaningSupport").value);
+    const neutral = Number(document.getElementById("neutral").value);
+    const neutralLeaningOppose = Number(document.getElementById("neutralLeaningOppose").value);
+    const oppose = Number(document.getElementById("oppose").value);
 
     // Stores all category values in an array
     const inputValues = [support, neutralLeaningSupport, neutral, neutralLeaningOppose, oppose];
