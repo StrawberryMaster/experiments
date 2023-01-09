@@ -71,6 +71,11 @@ button:active {
   text-align: center;
 }
 
+#voting-symbol {
+  height: 1rem;
+  vertical-align: text-bottom;
+}
+
 @media (prefers-color-scheme: dark) {
   body {
     background-color: black;
