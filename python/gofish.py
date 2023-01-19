@@ -15,6 +15,7 @@ draw_pile = deck[14:]
 
 # Set up the game loop
 game_over = False
+winner = ""
 while not game_over:
     # Player 1's turn
     print("Player 1's hand:", player1_hand)
@@ -66,4 +67,4 @@ while not game_over:
             winner = "Player 2"
 
 # Print the winner
-print(winner + " wins!")
+print("The winner is " + winner + "!")
