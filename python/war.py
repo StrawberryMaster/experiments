@@ -14,7 +14,7 @@ player2_deck = deck[26:]
 player1_pile = []
 player2_pile = []
 
-# Initialize the round number
+# Initialize the round number and a variable to check if the game is over
 round_number = 1
 no_more_cards = False
 
@@ -40,21 +40,17 @@ while player1_deck and player2_deck:
     # Compare the cards
     if player1_card > player2_card:
         # Player 1 wins the round and takes both cards
-        #player1_pile += [player1_card, player2_card]
-        player1_pile.append(player1_card)
-        player1_pile.append(player2_card)
+        player1_pile += [player1_card, player2_card]
         if len(player2_deck) > 0:
             player2_deck.pop()
-        print("Player 1 wins the round and takes", player1_card, "and", player2_card)
+        print("Player 1 wins the round and takes", player2_card, "while keeping", player1_card)
         print("\nPlayer 1 now has", len(player1_deck), "cards. Player 2 goes down to", len(player2_deck), "cards.")
     elif player2_card > player1_card:
         # Player 2 wins the round and takes both cards
-        #player2_pile += [player1_card, player2_card]
-        player2_pile.append(player1_card)
-        player2_pile.append(player2_card)
+        player2_pile += [player1_card, player2_card]
         if len(player1_deck) > 0:
             player1_deck.pop()
-        print("Player 2 wins the round and takes", player1_card, "and", player2_card)
+        print("Player 2 wins the round and takes", player1_card, "while keeping", player2_card)
         print("\nPlayer 2 now has", len(player2_deck), "cards. Player 1 goes down to", len(player1_deck), "cards.")
     else:
         # There is a war
@@ -66,7 +62,12 @@ while player1_deck and player2_deck:
             if min(len(player1_deck), len(player2_deck)) < 2:
                 print("\nThere was a war, but one of the players does not have enough cards (2) to continue.")
                 print("As a result, the game is over. In this case, the player with the most cards wins.")
-                print("Player 1's deck and Player 2's deck were both", player1_deck, player2_deck)
+                if len(player1_deck) > len(player2_deck):
+                    print("\nPlayer 1 wins the game with", len(player1_deck), "cards!")
+                elif len(player2_deck) > len(player1_deck):
+                    print("\nPlayer 2 wins the game with", len(player2_deck), "cards!")
+                else:
+                    print("\nThe game tied. This message should never appear.")                    
                 no_more_cards = True
                 break
             else:
@@ -89,12 +90,12 @@ while player1_deck and player2_deck:
                 if player1_card > player2_card:
                     # Player 1 wins the war and takes all the cards
                     player1_pile += war_pile
-                    print("Player 1 takes the entire pile, which is", war_pile)
+                    print("Player 1 wins the war and takes the war pile, with", len(war_pile), "cards.")
                     break
                 elif player2_card > player1_card:
                     # Player 2 wins the war and takes all the cards
+                    print("Player 2 wins the war and takes the war pile, with", len(war_pile), "cards.")
                     player2_pile += war_pile
-                    print("Player 2 takes the entire pile, which is", war_pile)
                     break
                 else:
                     # If the third cards are also equal, the war continues
