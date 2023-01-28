@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Battle Calculator</title>
+    <link rel="stylesheet" href="wargame.css">
+    <script src="wargame.js"></script>
+</head>
+
+<body>
+    <header>
+        <h1>Battle Calculator</h1>
+    </header>
+    <main>
+        <p>This calculator determines the outcome of a battle between nations. The strength of each nation is
+            represented by their power rating, which is the sum of their military, economic, and political power, on a
+            scale of 1 to 10.</p>
+        <p>A six-sided dice (d6) is rolled for each nation. A nation wins if their roll is greater than the maximum
+            amount of power (10) minus their own power rating. If the roll is equal to or less than the maximum amount
+            of power minus their own power rating, the nation loses.</p>
+        <form id="battleForm" method="post">
+            <label for="attacker">Attacker:</label>
+            <select id="attacker" name="attacker">
+                <option value="Japan">Japan</option>
+                <option value="Turkey">Turkey</option>
+                <option value="Australia">Australia</option>
+                <option value="Mexico">Mexico</option>
+                <option value="Paraguay">Paraguay</option>
+                <option value="Chad">Chad</option>
+                <option value="Mongolia">Mongolia</option>
+                <option value="Madagascar">Madagascar</option>
+                <option value="TrinidadAndTobago">Trinidad and Tobago</option>
+            </select>
+            <br>
+            <label for="defender">Defender:</label>
+            <select id="defender" name="defender">
+                <option value="Japan">Japan</option>
+                <option value="Turkey">Turkey</option>
+                <option value="Australia">Australia</option>
+                <option value="Mexico">Mexico</option>
+                <option value="Paraguay">Paraguay</option>
+                <option value="Chad">Chad</option>
+                <option value="Mongolia">Mongolia</option>
+                <option value="Madagascar">Madagascar</option>
+                <option value="TrinidadAndTobago">Trinidad and Tobago</option>
+            </select>
+            <br>
+            <button type="submit" id="calculator" onclick="calculateBattle()">Calculate Battle</button>
+        </form>
+    </main>
+    <div id="result">No battle calculated yet.</div>
+</body>
+
+</html>
