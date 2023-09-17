@@ -1,0 +1,63 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: url(//pages-themes.github.io/leap-day/assets/images/body-background.png);
+}
+
+.calculadora-fundo {
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+}
+
+.calculadora {
+    display: grid;
+    justify-items: center;
+    justify-content: center;
+    align-self: center;
+    margin: 0 auto;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.8);
+    top: 50vh;
+    left: 50vw;
+    transform: translate(-50%, -50%);
+    border-radius: 1rem;
+    padding: 1rem;
+}
+
+.botao {
+    width: 3rem;
+    height: 3rem;
+    font-size: 1.75rem;
+    cursor: pointer;
+    margin: .2rem;
+    background-color: rgb(25, 25, 25);
+    border: .1rem solid rgb(100, 100, 100);
+    color: #fff;
+}
+
+.botao:hover {
+    background-color: rgb(15, 15, 15);
+}
+
+.zero {
+    width: 6.5rem;
+}
+
+.igual {
+    height: 6.5rem;
+}
+
+#resultado {
+    width: 13rem;
+    background-color: rgb(255, 255, 255);
+    height: 2rem;
+    margin: .35rem;
+    font-size: 1.75rem;
+    color: black;
+    text-align: right;
+    padding: .5rem;
+}
