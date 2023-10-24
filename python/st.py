@@ -1,29 +1,39 @@
 import random
 
+counter = 0
+inventory_list = []
+
+
 def intro():
-    print("Welcome to the Upside Down! You are a member of the party, and you have been tasked with finding the missing Will Byers.")
-    print("As you search for Will, you will encounter strange and dangerous creatures. Use your wits and your weapons to survive and complete your mission.")
+    print(
+        "Welcome to the Upside Down! You are a member of the party, and you have been tasked with finding the missing Will Byers."
+    )
+    print(
+        "As you search for Will, you will encounter strange and dangerous creatures. Use your wits and your weapons to survive and complete your mission."
+    )
+
 
 def choice():
-    print("\nWhat would you like to do?")
-    print("1. Continue searching for Will")
-    print("2. Check your inventory")
-    print("3. Use a weapon")
-    print("4. Run away")
+    global counter
+    counter += 1
+    if counter > 2:
+        print("\nWhat would you like to do next? 1 - search, 2 - inventory")
+    else:
+        print("\nWhat would you like to do?")
+        print("1. Continue searching for Will")
+        print("2. Check your inventory")
     choice = input("Enter the number of your choice: ")
     return int(choice)
 
 def search():
-    chance = random.randint(1, 5)
-    if chance == 1:
-        print("\nYou have stumbled upon a pack of Demogorgons!")
+    chance = random.randint(1, 100)
+    if chance <= 20:
+        enemy = random.choice(["Demogorgons", "Mind Flayers"])
+        print(f"\nYou have stumbled upon a group of {enemy}!")
         fight()
-    elif chance == 2:
-        print("\nYou have stumbled upon a group of Mind Flayers!")
-        fight()
-    elif chance == 3:
+    elif chance <= 30:
         find_will()
-    elif chance == 4:
+    elif chance <= 40:
         find_weapon()
     else:
         print("\nYou continue searching, but you don't find anything.")
@@ -33,12 +43,14 @@ def find_will():
     print("Congratulations, you have completed your mission and saved Will! Game over.")
     exit()
 
+
 def find_weapon():
-    inventory = []
-    weapon_list = ["baseball bat", "hammer", "wrench", "scissors"]
-    weapon = random.choice(weapon_list)
+    weapon_list = ["scissors", "wrench", "hammer", "baseball bat"]
+    weapon_probabilities = [0.25, 0.25, 0.25, 0.25]
+    weapon = random.choices(weapon_list, weights=weapon_probabilities, k=1)[0]
     print(f"\nYou have found a {weapon}! It has been added to your inventory.")
-    inventory += [weapon]
+    inventory_list.append(weapon)
+
 
 def fight():
     print("\nWhat would you like to do?")
@@ -49,7 +61,9 @@ def fight():
     if int(choice) == 1:
         outcome = random.randint(1, 2)
         if outcome == 1:
-            print("\nYou manage to defeat the creatures and continue your search for Will.")
+            print(
+                "\nYou manage to defeat the creatures and continue your search for Will."
+            )
         else:
             print("\nYou are no match for the creatures and are killed. Game over.")
             exit()
@@ -58,25 +72,19 @@ def fight():
     else:
         run_away()
 
+
 def use_weapon():
-    if inventory:
-        weapon_list = ["baseball bat", "hammer", "wrench", "scissors"]
-        weapon = weapon_list
-        print("\nWhat weapon would you like to use?")
-        weapons = f"{weapon}, "
-        print(f"\nYou have the following weapons in your inventory: {weapons}")
-        choice = input("Enter the name of the weapon you want to u1se: ")
-        weapon = choice
+    if inventory_list:
+        weapon = inventory_list[-1]  # Fetch the last item in the list
         messages = {
             "baseball bat": "\nYou swing the baseball bat and manage to fend off the creatures. You continue your search for Will.",
             "hammer": "\nYou swing the hammer and manage to fend off the creatures. You continue your search for Will.",
             "wrench": "\nYou swing the wrench and manage to fend off the creatures. You continue your search for Will.",
-            "scissors": "\nYou swing the scissors and manage to fend off the creatures. You continue your search for Will."
+            "scissors": "\nYou swing the scissors and manage to fend off the creatures. You continue your search for Will.",
         }
         print(messages[weapon])
     else:
         print("\nYou don't have any weapons.")
-
 
 
 def run_away():
@@ -89,8 +97,15 @@ def run_away():
     else:
         print("\nYou manage to run away and continue your search for Will.")
 
+
 def inventory():
-    print("\nYou don't have any items in your inventory.")
+    if inventory_list:
+        print("\nYou have the following items in your inventory:")
+        for item in inventory_list:
+            print(f"- {item}")
+    else:
+        print("\nYou don't have any items in your inventory.")
+
 
 def main():
     intro()
@@ -104,6 +119,7 @@ def main():
             use_weapon()
         else:
             run_away()
+
 
 main()
 
