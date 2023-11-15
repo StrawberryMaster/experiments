@@ -1,8 +1,9 @@
 window.onload = () => {
+  const voteForm = document.getElementById("voteForm");
+  const resultDiv = document.getElementById("result");
+
   voteForm.addEventListener("submit", (event) => {
     event.preventDefault();
-
-    const resultDiv = document.getElementById("result");
 
     // Get the values of the input fields
     const support = parseInt(document.getElementById("support").value, 10);
@@ -34,7 +35,7 @@ window.onload = () => {
     const supermajority = totalSum / totalVoters;
 
     // Format the supermajority as a percentage with two decimal places
-    const formattedSupermajority = Number(supermajority).toFixed(2);
+    const formattedSupermajority = supermajority.toFixed(2);
 
     // Update the result div with the result
     if (supermajority >= 60) {
