@@ -1,5 +1,5 @@
 # stormdecider.py
-# @attr: rightside124
+# @attr: rightside124 / only_alexis
 # @author: strawberrymaster
 # @note: this is a rough draft and doesn't have all the features we need yet
 
@@ -7,7 +7,7 @@ import random
 
 def get_wind_speed(dissipation_type, activity):
     wind_speeds = {
-        "TD": [30, 35],
+        "TD": [25, 30, 35],
         "TS": [40, 45, 50, 60, 65, 70],
         "C1": [75, 80, 85, 90],
         "C2": [100, 105, 110],
@@ -20,7 +20,7 @@ def get_wind_speed(dissipation_type, activity):
             "hyperactive": [160, 165, 175, 180, 185, 190, 195, 200, 205, 215, 220, 225]
         }
     }
-    if dissipation_type == "C5":
+    if storm_category == "C5":
         return random.choice(wind_speeds[dissipation_type][activity])
     else:
         return random.choice(wind_speeds[dissipation_type])
@@ -84,18 +84,19 @@ if start.lower() == "y":
     while not is_valid_forming_day(forming_day, month, year_type):
         forming_day = str(get_forming_day(season_part))
 
+    forming_time = input("Choose forming time (0z, 6z, 12z, 18z): ")
     dissipation_time = input("Choose dissipation time (0z, 6z, 12z, 18z): ")
-    dissipation_type = input("Choose dissipation type (TD, TS, C1, C2, C3, C4, C5): ")
-    wind_speed = get_wind_speed(dissipation_type, activity)
+    storm_category = input("Choose storm category (TD, TS, C1, C2, C3, C4, C5): ")
+    wind_speed = get_wind_speed(storm_category, activity)
 
     landfall_or_fish = input("Choose landfall or fish storm: ")
     storm_name = input("Choose storm name: ")
 
-    print(f"{storm_name} formed on {month} {forming_day}, dissipated at {dissipation_time}, and peaked as a {dissipation_type} and wind speeds of {wind_speed} mph.")
+    print(f"{storm_name} formed on {month} {forming_day} {forming_time}, dissipated at {dissipation_time}, and peaked as a {storm_category} and wind speeds of {wind_speed} mph.")
     if landfall_or_fish == "landfall":
         print("Storm made landfall.")
     elif landfall_or_fish == "fish storm":
         print("Storm dissipated over water.")
 
 else:
-    print("Exiting program.")
+    print("Exiting program. Thank you for playing.")
