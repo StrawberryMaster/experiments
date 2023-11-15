@@ -47,7 +47,7 @@ def get_forming_day(season_part):
             "Jun": [20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30],
             "Sep": [20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30],
             "Nov": [20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30],
-            "Other": [20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30]
+            "Other": [20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31]
         }
     }
     if season_part == "Late":
@@ -99,4 +99,4 @@ if start.lower() == "y":
         print("Storm dissipated over water.")
 
 else:
-    print("Exiting program. Thank you for playing.")
+    print("Exiting program.")
