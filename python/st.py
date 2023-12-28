@@ -25,6 +25,7 @@ def choice():
     choice = input("Enter the number of your choice: ")
     return int(choice)
 
+
 def search():
     chance = random.randint(1, 100)
     if chance <= 20:
@@ -37,6 +38,7 @@ def search():
         find_weapon()
     else:
         print("\nYou continue searching, but you don't find anything.")
+
 
 def find_will():
     print("\nYou have found Will Byers!")
@@ -53,24 +55,35 @@ def find_weapon():
 
 
 def fight():
+    """This function is called when the player encounters an enemy.
+    The player can choose to fight, use a weapon, or run away."""
     print("\nWhat would you like to do?")
     print("1. Fight")
     print("2. Use a weapon")
     print("3. Run away")
     choice = input("Enter the number of your choice: ")
-    if int(choice) == 1:
-        outcome = random.randint(1, 2)
-        if outcome == 1:
+
+    if choice == "1":
+        outcome = attempt_fight()
+        if outcome == "win":
             print(
                 "\nYou manage to defeat the creatures and continue your search for Will."
             )
         else:
             print("\nYou are no match for the creatures and are killed. Game over.")
             exit()
-    elif int(choice) == 2:
+    elif choice == "2":
         use_weapon()
-    else:
+    elif choice == "3":
         run_away()
+    else:
+        print("\nInvalid choice. Please enter a valid option.")
+
+
+def attempt_fight():
+    """Returns a string indicating whether the player won or lost the fight."""
+    outcome = random.randint(1, 2)
+    return "win" if outcome == 1 else "lose"
 
 
 def use_weapon():
