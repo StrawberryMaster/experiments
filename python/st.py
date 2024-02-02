@@ -102,7 +102,7 @@ def use_weapon():
 
 def run_away():
     outcome = random.randint(1, 3)
-    if inventory != None:
+    if inventory is not None:
         outcome += 1
     if outcome == 1 or outcome == 2:
         print("\nYou are unable to outrun the creatures and are killed. Game over.")
