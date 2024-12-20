@@ -1,11 +1,22 @@
+:root {
+  --main-bg: lightyellow;
+  --main-color: darkblue;
+  --highlight-bg: lightblue;
+  --focus-color: blue;
+  --border-color: gray;
+}
+
 body {
-  background-color: lightyellow;
+  background-color: var(--main-bg);
+  color: #000;
   font-family: Georgia, sans-serif;
+  transition: background-color 0.2s ease-in-out;
 }
 
 h1 {
-  color: darkblue;
+  color: var(--main-color);
   font-size: 2em;
+  margin: 1rem 0;
   text-align: center;
 }
 
@@ -17,26 +28,26 @@ form {
   align-items: center;
   display: flex;
   flex-direction: column;
-  padding: 1.3rem;
   margin: 1.3rem;
+  padding: 1.3rem;
 }
 
 label {
-  margin: .3rem;
+  margin: 0.3rem;
   transition: color 0.2s ease-in-out;
 }
 
 input[type="number"] {
-  border: 1px solid gray;
+  border: 1px solid var(--border-color);
   border-radius: .3rem;
   margin: .35rem;
   padding: .35rem;
-  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, outline 0.1s ease-in-out;
   width: 80px;
 }
 
 input[type="number"]:focus {
-  outline: 1px solid blue;
+  outline: 1px solid var(--focus-color);
 }
 
 input[type="number"]:invalid {
@@ -44,12 +55,13 @@ input[type="number"]:invalid {
 }
 
 button {
-  background-color: lightblue;
+  background-color: var(--highlight-bg);
   border: none;
   border-radius: 5px;
   cursor: pointer;
   margin: 10px;
   padding: 10px 20px;
+  transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
 }
 
 button:hover {
@@ -62,12 +74,12 @@ button:active {
 }
 
 #result {
-  border: 1px solid gray;
+  border: 1px solid var(--border-color);
   border-radius: 5px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   font-weight: bold;
-  padding: 10px;
   margin: 20px;
+  padding: 10px;
   text-align: center;
 }
 
@@ -76,14 +88,16 @@ button:active {
   vertical-align: text-bottom;
 }
 
+/* Dark mode improvements */
 @media (prefers-color-scheme: dark) {
-  body {
-    background-color: black;
-    color: white;
+  :root {
+    --main-bg: #000;
+    --main-color: lightblue;
+    --border-color: #555;
   }
 
-  h1 {
-    color: lightblue;
+  body {
+    color: #fff;
   }
 
   form {
@@ -96,23 +110,15 @@ button:active {
 
   input[type="number"] {
     background-color: rgba(255, 255, 255, 0.1);
-    color: white;
-  }
-
-  button {
-    background-color: lightblue;
-  }
-
-  button:hover {
-    background-color: skyblue;
+    color: #fff;
   }
 
   #result {
     background-color: rgba(255, 255, 255, 0.1);
   }
-
 }
 
+/* Responsive layout */
 @media screen and (min-width: 600px) {
   form {
     flex-direction: row;
