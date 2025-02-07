@@ -19,9 +19,14 @@ window.onload = () => {
     }
 
     // Supermajority calculation
-    const totalVoters = values.reduce((a, b) => a + b);
     const weights = [100, 75, 50, 25, 0];
-    const totalSum = values.reduce((sum, val, idx) => sum + val * weights[idx], 0);
+    const { totalVoters, totalSum } = values.reduce(
+      (acc, val, idx) => ({
+        totalVoters: acc.totalVoters + val,
+        totalSum: acc.totalSum + val * weights[idx]
+      }),
+      { totalVoters: 0, totalSum: 0 }
+    );
     const supermajority = (totalSum / totalVoters).toFixed(2);
 
     // Display result
