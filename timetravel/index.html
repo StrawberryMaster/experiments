@@ -1,11 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Time Travel v1.3</title>
   <link rel="stylesheet" href="https://unpkg.com/xp.css" />
+  <style>
+    #imagePreview {
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+      height: 150px;
+      background: #fff;
+      border: 2px inset;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #uploadedImage {
+      position: absolute;
+      cursor: move;
+      user-select: none;
+    }
+
+    #year {
+      height: 17px;
+    }
+  </style>
 </head>
+
 <body>
   <div class="window" style="width: 400px; margin: 50px auto;">
     <div class="title-bar">
@@ -23,8 +48,8 @@
           <div class="field-row">
             <input type="file" id="imageUpload" accept="image/*" />
           </div>
-          <div id="imagePreview" style="width: 100%; height: 150px; background: #fff; border: 2px inset; display: flex; align-items: center; justify-content: center;">
-            [Image Placeholder]
+          <div id="imagePreview">
+            <span id="placeholderText">[Image Placeholder]</span>
           </div>
         </fieldset>
 
@@ -32,7 +57,7 @@
           <legend>Date</legend>
           <div class="field-row">
             <select name="day">
-              <option value="">Day</option>
+              <option value="" disabled selected>Day</option>
               <option value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
@@ -66,7 +91,7 @@
               <option value="31">31</option>
             </select>
             <select name="month">
-              <option value="">Month</option>
+              <option value="" disabled selected>Month</option>
               <option value="1">January</option>
               <option value="2">February</option>
               <option value="3">March</option>
@@ -101,6 +126,11 @@
           <div class="field-row">
             <input type="range" name="sqwimble" min="-100" max="100" value="0" style="width: 100%;" />
           </div>
+          <div style="display: flex; justify-content: space-between; font-size: 0.8em; margin-top: 4px;">
+            <span>-100</span>
+            <span>0</span>
+            <span>100</span>
+          </div>
         </fieldset>
 
         <fieldset>
@@ -122,17 +152,7 @@
     </div>
   </div>
 
-  <script>
-    document.getElementById('imageUpload').addEventListener('change', function(event) {
-      const reader = new FileReader();
-      reader.onload = function() {
-        const preview = document.getElementById('imagePreview');
-        preview.style.backgroundImage = `url(${reader.result})`;
-        preview.style.backgroundSize = 'cover';
-        preview.textContent = '';
-      };
-      reader.readAsDataURL(event.target.files[0]);
-    });
-  </script>
+  <script src="image.js"></script>
 </body>
+
 </html>
