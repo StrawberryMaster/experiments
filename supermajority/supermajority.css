@@ -1,135 +1,219 @@
+/* Stylesheet inspired by that of walkman.land */
 :root {
-  --main-bg: lightyellow;
-  --main-color: darkblue;
-  --highlight-bg: lightblue;
-  --focus-color: blue;
-  --border-color: gray;
+  --maxwidth: 1400px;
+  --colorW: #f2f2f2;
+  --colorM: #a29a96;
+  --colorB: #21211f;
+  --colorV: #fd8339;
+  --spacing: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2rem;
+  --col-gap: 0rem;
+  --col-gap-sm: 1rem;
+  --col-gap-md: 2rem;
+  --row-gap-md: 1.5rem;
+}
+
+html {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+::selection {
+  background: var(--colorV);
+  color: var(--colorW);
+}
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400;
+  src: local("JetBrains"),
+    url(//cdn.jsdelivr.net/npm/jetbrains-mono@1.0.6/fonts/webfonts/JetBrainsMonoNL-Regular.woff2) format("woff2"),
+    url(/public/font/JetBrainsMono-Regular.woff) format('woff');
+  font-display: swap
+}
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 700;
+  src: local("JetBrains"),
+    url(//cdn.jsdelivr.net/npm/jetbrains-mono@1.0.6/fonts/webfonts/JetBrainsMonoNL-Bold.woff2) format("woff2"),
+    url(/public/font/JetBrainsMono-Bold.woff) format('woff');
+  font-display: swap
 }
 
 body {
-  background-color: var(--main-bg);
-  color: #000;
-  font-family: Georgia, sans-serif;
-  transition: background-color 0.2s ease-in-out;
-}
-
-h1 {
-  color: var(--main-color);
-  font-size: 2em;
-  margin: 1rem 0;
-  text-align: center;
-}
-
-p {
-  margin: 1rem;
-}
-
-form {
-  align-items: center;
+  font-family: 'JetBrains Mono', Arial, Verdana, sans-serif;
+  color: var(--colorW);
+  background: var(--colorB) url(noise.png);
+  margin: 0;
+  padding: var(--spacing);
+  min-height: 100vh;
   display: flex;
-  flex-direction: column;
-  margin: 1.3rem;
-  padding: 1.3rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  max-width: 600px;
+  width: 100%;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: var(--spacing-lg);
+}
+
+.header h1 {
+  font-size: 2.3rem;
+  color: var(--colorW);
+  font-weight: 700;
+  margin: 0;
+}
+
+.subtitle {
+  font-size: 1rem;
+  color: var(--colorM);
+  margin-top: var(--spacing);
+}
+
+.card {
+  background: var(--colorW);
+  color: var(--colorB);
+  padding: var(--spacing-md);
+  border-radius: 3px;
+  position: relative;
+  transition: box-shadow 0.2s ease-in-out;
+}
+
+.card:hover {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.card:hover::after {
+  height: 8px;
+}
+
+.card:after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 0;
+  bottom: -8px;
+  left: 0;
+  background: var(--colorV);
+  transition: height 0.2s linear;
+}
+
+.description {
+  margin-bottom: var(--spacing-md);
+  font-size: 0.9rem;
+  color: var(--colorB);
+}
+
+.vote-form {
+  display: grid;
+  gap: var(--row-gap-md);
+}
+
+.input-group {
+  display: flex;
+  align-items: center;
+  gap: var(--col-gap-sm);
 }
 
 label {
-  margin: 0.3rem;
-  transition: color 0.2s ease-in-out;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  color: var(--colorB);
+  flex: 1;
+}
+
+.vote-icon {
+  height: 1.2rem;
+  width: 1.2rem;
 }
 
 input[type="number"] {
-  border: 1px solid var(--border-color);
-  border-radius: .3rem;
-  margin: .35rem;
-  padding: .35rem;
-  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, outline 0.1s ease-in-out;
-  width: 80px;
+  background: var(--colorW);
+  color: var(--colorB);
+  border: 1px solid transparent;
+  padding: 0.6rem;
+  font-size: 1rem;
+  width: 100px;
+  border-radius: 2px;
+  font-family: 'JetBrains Mono', Arial, sans-serif;
+  transition: border 0.3s ease-in-out;
 }
 
 input[type="number"]:focus {
-  outline: 1px solid var(--focus-color);
+  border: 1px solid var(--colorV);
+  outline: none;
 }
 
 input[type="number"]:invalid {
-  color: red;
+  border: 1px solid #e74c3c;
 }
 
-button {
-  background-color: var(--highlight-bg);
-  border: none;
-  border-radius: 5px;
+.calculate-btn {
+  background: var(--colorM);
+  color: var(--colorB);
+  border: 0;
+  padding: 0.8rem 1.5rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
   cursor: pointer;
-  margin: 10px;
-  padding: 10px 20px;
-  transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
+  border-radius: 2px;
+  transition: background 0.2s ease-in-out, color 0.2s ease-in-out;
 }
 
-button:hover {
-  background-color: skyblue;
+.calculate-btn:hover {
+  background: var(--colorV);
 }
 
-button:active {
-  background-color: deepskyblue;
-  transform: translateY(2px);
+.calculate-btn:active {
+  background: var(--colorB);
 }
 
-#result {
-  border: 1px solid var(--border-color);
-  border-radius: 5px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  font-weight: bold;
-  margin: 20px;
-  padding: 10px;
+.result {
+  margin-top: var(--spacing-md);
+  padding: var(--spacing);
+  background: var(--colorM);
+  color: var(--colorB);
+  border-radius: 3px;
   text-align: center;
+  font-size: 0.9rem;
+  font-weight: 700;
 }
 
-#voting-symbol {
-  height: 1rem;
-  vertical-align: text-bottom;
-}
-
-/* Dark mode improvements */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --main-bg: #000;
-    --main-color: lightblue;
-    --border-color: #555;
-  }
-
-  body {
-    color: #fff;
-  }
-
-  form {
-    background-color: rgba(255, 255, 255, 0.1);
-  }
-
-  label {
-    color: lightgray;
+@media (max-width: 575px) {
+  .input-group {
+    flex-direction: column;
+    align-items: flex-start;
   }
 
   input[type="number"] {
-    background-color: rgba(255, 255, 255, 0.1);
-    color: #fff;
+    width: 100%;
   }
 
-  #result {
-    background-color: rgba(255, 255, 255, 0.1);
-  }
-}
-
-/* Responsive layout */
-@media screen and (min-width: 600px) {
-  form {
-    flex-direction: row;
+  .header h1 {
+    font-size: 1.8rem;
   }
 
-  label {
-    text-align: right;
-    width: 150px;
-  }
-
-  input[type="number"] {
-    width: 50px;
+  .subtitle {
+    font-size: 0.9rem;
   }
 }

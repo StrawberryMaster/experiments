@@ -10,50 +10,64 @@
 </head>
 
 <body>
-  <header>
-    <h1>Supermajority Calculator</h1>
-  </header>
-  <main>
-    <p>This calculator determines the supermajority for a vote by summing the values assigned to each category
-      (Support = 100, Neutral Leaning Support = 75, Neutral = 50, Neutral Leaning Oppose = 25, Oppose = 0), multiplying
-      these values
-      by the number of votes in each category, and dividing by the total number of votes. If the resulting supermajority
-      is 60% or above, the vote passes; otherwise, it fails.</p>
-    <form id="voteForm" method="post">
-      <label>
-        <img id="voting-symbol" src="https://upload.wikimedia.org/wikipedia/commons/9/94/Symbol_support_vote.svg">
-        Support:
-      </label>
-      <input type="number" id="support" value="0" min="0">
-      <br>
-      <label>
-        <img id="voting-symbol" src="https://upload.wikimedia.org/wikipedia/commons/2/28/Symbol_arrow_up.svg">
-        Neutral Leaning Support:
-      </label>
-      <input type="number" id="neutralLeaningSupport" value="0" min="0">
-      <br>
-      <label>
-        <img id="voting-symbol" src="https://upload.wikimedia.org/wikipedia/commons/8/89/Symbol_neutral_vote.svg">
-        Neutral:
-      </label>
-      <input type="number" id="neutral" value="0" min="0">
-      <br>
-      <label>
-        <img id="voting-symbol" src="https://upload.wikimedia.org/wikipedia/commons/f/f7/Symbol_arrow_down.svg">
-        Neutral Leaning Oppose:
-      </label>
-      <input type="number" id="neutralLeaningOppose" value="0" min="0">
-      <br>
-      <label>
-        <img id="voting-symbol" src="https://upload.wikimedia.org/wikipedia/commons/7/7f/Symbol_oppose_vote.svg">
-        Oppose:
-      </label>
-      <input type="number" id="oppose" value="0" min="0">
-      <br>
-      <button type="submit">Calculate Supermajority</button>
-    </form>
-  </main>
-  <div id="result">No supermajority calculated yet.</div>
+  <div class="container">
+    <header class="header">
+      <h1>Supermajority Calculator</h1>
+      <p class="subtitle">Calculate voting outcomes with precision</p>
+    </header>
+    <main class="card">
+      <section class="description">
+        <p>This tool calculates the supermajority by assigning values to each vote category (Support = 100, Neutral
+          Leaning Support = 75, Neutral = 50, Neutral Leaning Oppose = 25, Oppose = 0), summing the weighted votes, and
+          dividing by the total votes. A result of 60% or higher passes.</p>
+      </section>
+      <form id="voteForm" class="vote-form" method="post">
+        <div class="input-group">
+          <label for="support">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/9/94/Symbol_support_vote.svg" alt="Support"
+              class="vote-icon">
+            Support
+          </label>
+          <input type="number" id="support" value="0" min="0" placeholder="0">
+        </div>
+        <div class="input-group">
+          <label for="neutralLeaningSupport">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/2/28/Symbol_arrow_up.svg"
+              alt="Neutral Leaning Support" class="vote-icon">
+            Neutral Leaning Support
+          </label>
+          <input type="number" id="neutralLeaningSupport" value="0" min="0" placeholder="0">
+        </div>
+        <div class="input-group">
+          <label for="neutral">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Symbol_neutral_vote.svg" alt="Neutral"
+              class="vote-icon">
+            Neutral
+          </label>
+          <input type="number" id="neutral" value="0" min="0" placeholder="0">
+        </div>
+        <div class="input-group">
+          <label for="neutralLeaningOppose">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/f/f7/Symbol_arrow_down.svg"
+              alt="Neutral Leaning Oppose" class="vote-icon">
+            Neutral Leaning Oppose
+          </label>
+          <input type="number" id="neutralLeaningOppose" value="0" min="0" placeholder="0">
+        </div>
+        <div class="input-group">
+          <label for="oppose">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/7/7f/Symbol_oppose_vote.svg" alt="Oppose"
+              class="vote-icon">
+            Oppose
+          </label>
+          <input type="number" id="oppose" value="0" min="0" placeholder="0">
+        </div>
+        <button type="submit" class="calculate-btn">Calculate Supermajority</button>
+      </form>
+      <div id="result" class="result">No supermajority calculated yet.</div>
+    </main>
+  </div>
+
 </body>
 
 </html>
