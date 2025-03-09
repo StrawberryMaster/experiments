@@ -1,18 +1,18 @@
-/* This stylesheet was inspired by that of walkman.land 
- * and likely still needs some cleanup */
+/* This stylesheet was inspired by that of https:// walkman.land 
+ * and all necessary attribution(s) go to their respective authors */
 :root {
-  --maxwidth: 1400px;
-  --colorW: #f2f2f2;
-  --colorM: #a29a96;
   --colorB: #21211f;
+  --colorM: #a29a96;
   --colorV: #fd8339;
-  --spacing: 1rem;
-  --spacing-md: 1.5rem;
-  --spacing-lg: 2rem;
+  --colorW: #f2f2f2;
   --col-gap: 0rem;
   --col-gap-sm: 1rem;
   --col-gap-md: 2rem;
   --row-gap-md: 1.5rem;
+  --maxwidth: 1400px;
+  --spacing: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2rem;
 }
 
 html {
@@ -52,20 +52,19 @@ html {
 }
 
 body {
-  font-family: 'JetBrains Mono', Arial, Verdana, sans-serif;
-  color: var(--colorW);
+  align-items: center;;
   background: var(--colorB) url(noise.png);
-  margin: 0;
-  padding: var(--spacing);
-  min-height: 100vh;
+  color: var(--colorW);
   display: flex;
+  font-family: 'JetBrains Mono', Arial, Verdana, sans-serif;
   justify-content: center;
-  align-items: center;
+  padding: var(--spacing);
+  margin: 0;
+  min-height: 100vh;
 }
 
 .container {
   max-width: 600px;
-  width: 100%;
 }
 
 .header {
@@ -75,22 +74,18 @@ body {
 
 .header h1 {
   font-size: 2.3rem;
-  color: var(--colorW);
-  font-weight: 700;
   margin: 0;
 }
 
 .subtitle {
-  font-size: 1rem;
   color: var(--colorM);
-  margin-top: var(--spacing);
 }
 
 .card {
   background: var(--colorW);
+  border-radius: .2rem;
   color: var(--colorB);
   padding: var(--spacing-md);
-  border-radius: 3px;
   position: relative;
   transition: box-shadow 0.2s ease-in-out;
 }
@@ -104,20 +99,19 @@ body {
 }
 
 .card:after {
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: 0;
-  bottom: -8px;
-  left: 0;
   background: var(--colorV);
+  bottom: -8px;
+  content: '';
+  height: 0;
+  left: 0;
+  position: absolute;
   transition: height 0.2s linear;
+  width: 100%;
 }
 
 .description {
   margin-bottom: var(--spacing-md);
   font-size: 0.9rem;
-  color: var(--colorB);
 }
 
 .vote-form {
@@ -126,20 +120,19 @@ body {
 }
 
 .input-group {
-  display: flex;
   align-items: center;
+  display: flex;
   gap: var(--col-gap-sm);
 }
 
 label {
-  display: flex;
   align-items: center;
+  display: flex;
   gap: 0.5rem;
-  font-weight: 700;
-  font-size: 0.9rem;
-  text-transform: uppercase;
-  color: var(--colorB);
   flex: 1;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
 }
 
 .vote-icon {
@@ -148,37 +141,38 @@ label {
 }
 
 input[type="number"] {
-  background: var(--colorW);
+  background: color-mix(in srgb, var(--colorW) 25%, #fff);
+  border: .1rem solid transparent;
+  border-radius: .2rem;
   color: var(--colorB);
-  border: 1px solid transparent;
-  padding: 0.6rem;
-  font-size: 1rem;
-  width: 100px;
-  border-radius: 2px;
   font-family: 'JetBrains Mono', Arial, sans-serif;
+  font-size: 1rem;
+  padding: 0.6rem;
   transition: border 0.3s ease-in-out;
+  width: 100px;
 }
 
 input[type="number"]:focus {
-  border: 1px solid var(--colorV);
+  border: .1rem solid var(--colorV);
   outline: none;
 }
 
 input[type="number"]:invalid {
-  border: 1px solid #e74c3c;
+  border: .1rem solid #e74c3c;
 }
 
 .calculate-btn {
   background: var(--colorM);
-  color: var(--colorB);
   border: 0;
-  padding: 0.8rem 1.5rem;
+  border-radius: .2rem;
+  color: var(--colorB);
+  cursor: pointer;
+  font-family: inherit;
   font-size: 0.9rem;
   font-weight: 700;
+  padding: .75em 1.5rem;
   text-transform: uppercase;
-  cursor: pointer;
-  border-radius: 2px;
-  transition: background 0.2s ease-in-out, color 0.2s ease-in-out;
+  transition: background .2s ease-in-out, color .2s ease-in-out;
 }
 
 .calculate-btn:hover {
@@ -187,23 +181,23 @@ input[type="number"]:invalid {
 
 .calculate-btn:active {
   background: var(--colorB);
+  color: green;
 }
 
 .result {
-  margin-top: var(--spacing-md);
-  padding: var(--spacing);
   background: var(--colorM);
-  color: var(--colorB);
-  border-radius: 3px;
-  text-align: center;
+  border-radius: .2rem;
   font-size: 0.9rem;
   font-weight: 700;
+  margin-top: var(--spacing-md);
+  padding: var(--spacing);
+  text-align: center;
 }
 
 @media (max-width: 575px) {
   .input-group {
-    flex-direction: column;
     align-items: flex-start;
+    flex-direction: column;
   }
 
   input[type="number"] {
@@ -215,6 +209,6 @@ input[type="number"]:invalid {
   }
 
   .subtitle {
-    font-size: 0.9rem;
+    font-size: .9rem;
   }
 }
