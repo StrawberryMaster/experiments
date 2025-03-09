@@ -7,13 +7,19 @@ body {
 }
 
 h1 {
-    color: #0070c9;
+    background: linear-gradient(to right, #fff, #76c1ff, #f5a9b8, #fff);
+    color: #000;
+    font-family: 'JetBrains Mono', monospace;
     font-size: 2rem;
     margin: 20px;
+    mask: linear-gradient(to right, #000 70%, transparent 80%);
+    padding-left: .75rem;
+    text-transform: lowercase;
+    --webkit-text-fill-color: transparent;
 }
 
 p {
-    font-size: 1.2rem;
+    font-family: 'JetBrains Mono', monospace;
     line-height: 1.5;
     margin: 1.3rem;
 }
@@ -40,10 +46,6 @@ ul li {
     body {
         color: #eee;
         background-color: #222;
-    }
-
-    h1 {
-        color: #76c1ff;
     }
 
     a {
